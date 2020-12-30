@@ -7,15 +7,27 @@ export interface Settings {
   latitude: number;
   longitude: number;
 }
+export interface GPS {
+  isActived: boolean;
+  latitude: number;
+  longitude: number;
+}
 interface UserContext {
+  gps: GPS;
+  setGps: (gps: GPS) => void;
   settings: Settings;
   setSettings: (settings: Settings) => void;
 }
 
 const initialSettings = {
   range: 5,
-  latitude: 127.0324052,
-  longitude: 37.4997864,
+  latitude: 0,
+  longitude: 0,
+};
+const initialGPS = {
+  isActived: false,
+  latitude: 0,
+  longitude: 0,
 };
 
 const initialState =
@@ -23,6 +35,7 @@ const initialState =
 
 const UserProvider: React.FC = ({ children }) => {
   const [settings, setSettings] = useState(initialState);
+  const [gps, setGps] = useState(initialGPS);
 
   useEffect(() => {
     localStorage.setItem("settings", JSON.stringify(settings));
@@ -33,6 +46,8 @@ const UserProvider: React.FC = ({ children }) => {
       value={{
         settings,
         setSettings,
+        gps,
+        setGps,
       }}
     >
       {children}

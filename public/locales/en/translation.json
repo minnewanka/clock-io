@@ -3,5 +3,10 @@
   "settings": {
     "title": "Settings",
     "save": "Save"
+  },
+  "gps": {
+    "arrived": "You Arrived",
+    "outofrange": "You are {{distance}} km await from office",
+    "error": "Enable browser location services"
   }
 }
