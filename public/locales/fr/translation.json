@@ -8,5 +8,8 @@
     "arrived": "Vous êtes arrivé",
     "outofrange": "Vous êtes à {{distance}} km du bureau",
     "error": "Veuillez activez la geolocation dans le navigateur"
-  }
+  },
+  "outofrange": "Hors de portée",
+  "clockin": "Pointage",
+  "clockOut": "Dépointage"
 }

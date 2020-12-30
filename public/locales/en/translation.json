@@ -8,5 +8,8 @@
     "arrived": "You Arrived",
     "outofrange": "You are {{distance}} km await from office",
     "error": "Enable browser location services"
-  }
+  },
+  "outofrange": "Hors de portée",
+  "clockin": "Clock In",
+  "clockOut": "Clock Out,"
 }

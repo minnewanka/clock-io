@@ -15,10 +15,17 @@ const GPS: React.FC = () => {
   const { t } = useTranslation();
 
   const onSuccess = ({ coords }: { coords: Position }) => {
+    const distance = haversineDistance(
+      coords.latitude,
+      coords.longitude,
+      settings.latitude,
+      settings.longitude
+    );
     setGps({
       isActived: true,
       latitude: coords.latitude,
       longitude: coords.longitude,
+      distance: Math.round(distance * 10) / 10,
     });
   };
   const onError = () => {
@@ -28,21 +35,14 @@ const GPS: React.FC = () => {
   const activate = () =>
     navigator.geolocation.getCurrentPosition(onSuccess, onError);
 
-  const distance = haversineDistance(
-    gps.latitude,
-    gps.longitude,
-    settings.latitude,
-    settings.longitude
-  );
-
   return (
     <div>
       <div>Latitude: {gps.latitude}</div>
       <div>Longitude: {gps.longitude}</div>
       {hasError && t("gps.error")}
-      {distance < settings.range
+      {gps.distance && gps.distance < settings.range
         ? t("gps.arrived")
-        : t("gps.outofrange", { distance: Math.round(distance * 10) / 10 })}
+        : t("gps.outofrange", {})}
       {!gps.isActived && (
         <button type="button" onClick={activate}>
           Enable GPS
