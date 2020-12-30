@@ -11,5 +11,8 @@
   },
   "outofrange": "Hors de portée",
   "clockin": "Pointage",
-  "clockout": "Dépointage"
+  "clockout": "Dépointage",
+  "clockingHistory": {
+    "title": "Historique de Pointage"
+  }
 }

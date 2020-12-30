@@ -1,4 +1,5 @@
 import React, { useState, useContext } from "react";
+import { Container, Row } from "react-grid-system";
 import { useTranslation } from "react-i18next";
 import styled from "styled-components";
 import i18n from "./i18n";
@@ -6,9 +7,9 @@ import Home from "./pages/Home";
 import Settings from "./pages/Settings";
 
 const Title = styled.h1`
-  font-size: 1.5em;
+  font-size: 50px;
   text-align: center;
-  color: green;
+  color: #0a61f7;
 `;
 
 const App: React.FC = () => {
@@ -19,7 +20,7 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className="App">
+    <Container className="App">
       <Title>{t("title")}</Title>
       <button onClick={() => (page === 1 ? setPage(0) : setPage(1))}>
         {page === 0 ? "Settings" : "Home"}
@@ -27,7 +28,7 @@ const App: React.FC = () => {
       <button onClick={() => changeLanguage("en")}>EN</button>
       <button onClick={() => changeLanguage("fr")}>FR</button>
       {page === 0 ? <Home /> : <Settings />}
-    </div>
+    </Container>
   );
 };
 

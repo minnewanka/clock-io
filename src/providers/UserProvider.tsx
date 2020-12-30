@@ -26,6 +26,8 @@ interface UserContext {
   settings: Settings;
   setSettings: (settings: Settings) => void;
   setClockingEntries: (entries: ClockingEntry[]) => void;
+  isClockIn: boolean;
+  setIsClockIn: (status: boolean) => void;
 }
 
 const initialSettings = {
@@ -46,6 +48,7 @@ const initialEntriesState =
   JSON.parse(localStorage.getItem("clockingEntries") as string) || [];
 
 const UserProvider: React.FC = ({ children }) => {
+  const [isClockIn, setIsClockIn] = useState(true);
   const [settings, setSettings] = useState(initialSettingsState);
   const [clockingEntries, setClockingEntries] = useState<ClockingEntry[]>(
     initialEntriesState
@@ -63,6 +66,8 @@ const UserProvider: React.FC = ({ children }) => {
   return (
     <UserContext.Provider
       value={{
+        isClockIn,
+        setIsClockIn,
         settings,
         setSettings,
         gps,

@@ -11,5 +11,8 @@
   },
   "outofrange": "Hors de portée",
   "clockin": "Clock In",
-  "clockout": "Clock Out"
+  "clockout": "Clock Out",
+  "clockingHistory": {
+    "title": "Recent Clocking History"
+  }
 }

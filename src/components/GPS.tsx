@@ -40,9 +40,11 @@ const GPS: React.FC = () => {
       <div>Latitude: {gps.latitude}</div>
       <div>Longitude: {gps.longitude}</div>
       {hasError && t("gps.error")}
-      {gps.distance && gps.distance < settings.range
-        ? t("gps.arrived")
-        : t("gps.outofrange", {})}
+      {gps.isActived
+        ? gps.distance && gps.distance < settings.range
+          ? t("gps.arrived")
+          : t("gps.outofrange", { distance: gps.distance })
+        : null}
       {!gps.isActived && (
         <button type="button" onClick={activate}>
           Enable GPS

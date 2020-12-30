@@ -12,6 +12,7 @@ const Settings: React.FC = () => {
   return (
     <div>
       <h1>{t("settings.title")}</h1>
+      <span>{`Range: ${range}`}</span>
       <input
         type="range"
         min="5"
