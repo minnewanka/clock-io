@@ -1,12 +1,12 @@
 import React from "react";
-import { SettingsProvider } from "./providers/SettingsProvider";
+import { UserProvider } from "./providers/UserProvider";
 import App from "./App";
 
 const AppWrapper = () => {
   return (
-    <SettingsProvider>
+    <UserProvider>
       <App />
-    </SettingsProvider>
+    </UserProvider>
   );
 };
 

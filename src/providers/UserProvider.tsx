@@ -1,15 +1,13 @@
 import React, { Context, createContext, useState, useEffect } from "react";
 
-const SettingsContext: Context<SettingsContext> = createContext(
-  {} as SettingsContext
-);
+const UserContext: Context<UserContext> = createContext({} as UserContext);
 
 export interface Settings {
   range: number;
   latitude: number;
   longitude: number;
 }
-interface SettingsContext {
+interface UserContext {
   settings: Settings;
   setSettings: (settings: Settings) => void;
 }
@@ -23,7 +21,7 @@ const initialSettings = {
 const initialState =
   JSON.parse(localStorage.getItem("settings") as string) || initialSettings;
 
-const SettingsProvider: React.FC = ({ children }) => {
+const UserProvider: React.FC = ({ children }) => {
   const [settings, setSettings] = useState(initialState);
 
   useEffect(() => {
@@ -31,15 +29,15 @@ const SettingsProvider: React.FC = ({ children }) => {
   }, [settings]);
 
   return (
-    <SettingsContext.Provider
+    <UserContext.Provider
       value={{
         settings,
         setSettings,
       }}
     >
       {children}
-    </SettingsContext.Provider>
+    </UserContext.Provider>
   );
 };
 
-export { SettingsProvider, SettingsContext };
+export { UserProvider, UserContext };

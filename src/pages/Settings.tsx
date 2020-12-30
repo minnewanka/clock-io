@@ -1,9 +1,9 @@
 import React, { useContext, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { SettingsContext } from "../providers/SettingsProvider";
+import { UserContext } from "../providers/UserProvider";
 
 const Settings: React.FC = () => {
-  const { settings, setSettings } = useContext(SettingsContext);
+  const { settings, setSettings } = useContext(UserContext);
   const { t } = useTranslation();
   const [range, setRange] = useState(settings.range);
   const [latitude, setLatitude] = useState(settings.latitude);
