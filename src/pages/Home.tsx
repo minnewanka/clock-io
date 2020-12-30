@@ -12,7 +12,6 @@ const Home: React.FC = () => {
   );
   const [isClockIn, setIsClockIn] = useState(true);
   const { t } = useTranslation();
-
   const fetchAPI = (latitude: number, longitude: number) => {
     const token =
       "pk.eyJ1IjoiaWFtYXBhcms4OSIsImEiOiJjanlpZmF5c3AwOXJzM2NxaDQzNWhiaDRmIn0.C-e2EpmyDtsqPbu9FjJz5Q";
@@ -36,8 +35,12 @@ const Home: React.FC = () => {
       .then((data) => {
         const address = data.features[0].properties.address;
         const date = format(new Date(), "dd/MM @ HH:mm aaaa");
-        setClockingEntries([...clockingEntries, { type: "in", date, address }]);
+        setClockingEntries([
+          ...clockingEntries,
+          { type: isClockIn ? "in" : "out", date, address },
+        ]);
       });
+    setIsClockIn(!isClockIn);
   };
 
   return (
