@@ -24,7 +24,7 @@ const initialState =
   JSON.parse(localStorage.getItem("settings") as string) || initialSettings;
 
 const SettingsProvider: React.FC = ({ children }) => {
-  const [settings, setSettings] = useState(initialSettings);
+  const [settings, setSettings] = useState(initialState);
 
   useEffect(() => {
     localStorage.setItem("settings", JSON.stringify(settings));

@@ -1,3 +1,7 @@
 {
-  "title": "Welcome to react using react-i18next"
+  "title": "Clock IO",
+  "settings": {
+    "title": "Settings",
+    "save": "Save"
+  }
 }
