@@ -12,7 +12,7 @@ const Title = styled.h1`
 `;
 
 const App: React.FC = () => {
-  const [page, setPage] = useState(1);
+  const [page, setPage] = useState(0);
   const { t } = useTranslation();
   const changeLanguage = (lng: string) => {
     i18n.changeLanguage(lng);
