@@ -2,14 +2,24 @@
   "title": "Clock IO",
   "settings": {
     "title": "Settings",
+    "subtitle": {
+      "range": "Set Clock In Range",
+      "location": "Set Office Location"
+    },
+    "label": {
+      "range": "Range in KM",
+      "latitude": "Latitude",
+      "longitude": "Longitude"
+    },
     "save": "Save"
   },
   "gps": {
+    "currentPosition": "Current Position",
     "arrived": "You Arrived",
     "outofrange": "You are {{distance}} km await from office",
     "error": "Enable browser location services"
   },
-  "outofrange": "Hors de portée",
+  "outofrange": "Out of Range",
   "clockin": "Clock In",
   "clockout": "Clock Out",
   "clockingHistory": {

@@ -4,6 +4,8 @@ import "./index.css";
 import AppWrapper from "./AppWrapper";
 import reportWebVitals from "./reportWebVitals";
 
+import i18n from "./i18n";
+
 ReactDOM.render(
   <React.StrictMode>
     <AppWrapper />

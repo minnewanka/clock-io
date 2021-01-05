@@ -6,13 +6,12 @@ import { format } from "date-fns";
 import { UserContext } from "../providers/UserProvider";
 import Clock from "../components/Clock";
 import GPS from "../components/GPS";
+import Button from "../components/Button";
 import ClockingHistory from "../components/ClockingHistory";
 
-const Button = styled.button`
-  width: 10rem;
-  height: 3rem;
-  border-radius: 3rem;
-  color: #0a61f7;
+const StyledButton = styled(Button)<{ isClockIn: boolean }>`
+  background-color: ${(props) =>
+    props.isClockIn ? props.theme.colors.green : props.theme.colors.orange};
 `;
 
 const Home: React.FC = () => {
@@ -52,8 +51,8 @@ const Home: React.FC = () => {
         const address = data.features[0].properties.address;
         const date = format(new Date(), "dd/MM @ HH:mm aaaa");
         setClockingEntries([
-          ...clockingEntries,
           { type: isClockIn ? "in" : "out", date, address },
+          ...clockingEntries,
         ]);
       });
     setIsClockIn(!isClockIn);
@@ -61,7 +60,7 @@ const Home: React.FC = () => {
 
   return (
     <>
-      <Row>
+      <Row align="center">
         <Col>
           <GPS />
         </Col>
@@ -73,13 +72,13 @@ const Home: React.FC = () => {
         </Col>
       </Row>
       <Row justify="center">
-        <Button
+        <StyledButton
+          isClockIn={isClockIn}
+          label={label}
           type="button"
           onClick={handleOnClick}
           disabled={isOutOfRange || false}
-        >
-          {label}
-        </Button>
+        />
       </Row>
     </>
   );

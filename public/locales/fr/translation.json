@@ -2,9 +2,19 @@
   "title": "Horloge IO",
   "settings": {
     "title": "Preferences",
+    "subtitle": {
+      "range": "Configurer la plage de Pointage",
+      "location": "Configurer l'emplacement du bureau"
+    },
+    "label": {
+      "range": "Plage en KM",
+      "latitude": "Latitude",
+      "longitude": "Longitude"
+    },
     "save": "Sauvegarder"
   },
   "gps": {
+    "currentPosition": "Position Actuelle",
     "arrived": "Vous êtes arrivé",
     "outofrange": "Vous êtes à {{distance}} km du bureau",
     "error": "Veuillez activez la geolocation dans le navigateur"

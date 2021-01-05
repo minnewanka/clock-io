@@ -1,12 +1,15 @@
 import React from "react";
 import { UserProvider } from "./providers/UserProvider";
+import Theme from "./theme";
 import App from "./App";
 
 const AppWrapper = () => {
   return (
-    <UserProvider>
-      <App />
-    </UserProvider>
+    <Theme>
+      <UserProvider>
+        <App />
+      </UserProvider>
+    </Theme>
   );
 };
 

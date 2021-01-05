@@ -4,12 +4,20 @@ import { format } from "date-fns";
 import { UserContext } from "../providers/UserProvider";
 
 const Div = styled.div<{ isClockIn: boolean }>`
+  box-sizing: content-box;
   height: 20em;
   width: 20em;
   line-height: 20em;
-  background-color: ${(props) => (props.isClockIn ? "#0a61f7" : "green")};
+  margin: auto;
+  background-color: ${(props) =>
+    props.isClockIn ? props.theme.colors.blue : props.theme.colors.green};
   border-radius: 50%;
   text-align: center;
+  text-transform: uppercase;
+  border: 5px solid ${(props) => props.theme.colors.white};
+  box-shadow: 0 0 0 5px ${(props) =>
+    props.isClockIn ? props.theme.colors.blue : props.theme.colors.green};
+}
 `;
 
 const Text = styled.span`
